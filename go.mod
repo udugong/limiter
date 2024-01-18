@@ -5,7 +5,6 @@ go 1.18
 require (
 	github.com/redis/go-redis/v9 v9.4.0
 	github.com/stretchr/testify v1.8.4
-	go.uber.org/mock v0.4.0
 )
 
 require (
