@@ -3,8 +3,9 @@ module github.com/udugong/limiter
 go 1.18
 
 require (
-	github.com/redis/go-redis/v9 v9.4.0
-	github.com/stretchr/testify v1.8.4
+	github.com/redis/go-redis/v9 v9.5.1
+	github.com/stretchr/testify v1.9.0
+	go.uber.org/mock v0.4.0
 )
 
 require (
