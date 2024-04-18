@@ -4,28 +4,22 @@ import (
 	"context"
 	"sync"
 	"time"
-)
 
-//go:generate mockgen -source=./local_slide_window.go -package=queuemocks -destination=mocks/queue.mock.go Queue
-type BoundedQueue interface {
-	Enqueue(val time.Time) error // 入队
-	Dequeue() (time.Time, error) // 出队
-	Peek() (time.Time, error)    // 查看对头元素
-	IsFull() bool                // 是否队满
-}
+	"github.com/udugong/limiter/internal/queue"
+)
 
 type LocalSlideWindowLimiter struct {
 	// 窗口大小
 	Window time.Duration
 
 	// 有界队列
-	Queue    BoundedQueue
+	Queue    queue.BoundedQueue
 	lock     sync.Mutex
 	timeFunc func() time.Time
 }
 
 // NewLocalSlideWindowLimiter 本地的滑动窗口算法限流器实现
-func NewLocalSlideWindowLimiter(window time.Duration, queue BoundedQueue, opts ...Option) *LocalSlideWindowLimiter {
+func NewLocalSlideWindowLimiter(window time.Duration, queue queue.BoundedQueue, opts ...Option) *LocalSlideWindowLimiter {
 	l := &LocalSlideWindowLimiter{
 		Window:   window,
 		Queue:    queue,
