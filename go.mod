@@ -1,6 +1,6 @@
 module github.com/udugong/limiter
 
-go 1.18
+go 1.20
 
 require (
 	github.com/redis/go-redis/v9 v9.5.1
