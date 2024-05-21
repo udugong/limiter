@@ -15,9 +15,6 @@ import (
 
 func TestLocalSlideWindowLimiter_Limit(t *testing.T) {
 	now := time.UnixMilli(1695571200000)
-	// l := &LocalSlideWindowLimiter{
-	// 	Window: 10 * time.Second,
-	// }
 	l := NewLocalSlideWindowLimiter(10*time.Second, nil,
 		WithTimeFunc(func() time.Time {
 			return now
