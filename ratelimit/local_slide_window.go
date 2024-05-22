@@ -13,7 +13,7 @@ import (
 // 表示: 在 window 内允许有界队列大小的请求
 func NewLocalSlideWindowLimiter(window time.Duration, boundedQueue queue.BoundedQueue,
 	opts ...ratelimit.Option) *ratelimit.LocalSlideWindowLimiter {
-	return ratelimit.NewLocalSlideWindowLimiter(window, boundedQueue)
+	return ratelimit.NewLocalSlideWindowLimiter(window, boundedQueue, opts...)
 }
 
 // WithTimeFunc 控制时间.
