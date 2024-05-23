@@ -9,8 +9,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
+	"github.com/udugong/limiter/internal/mocks/queuemocks"
 	"github.com/udugong/limiter/internal/queue"
-	queuemocks "github.com/udugong/limiter/internal/queue/mocks"
 )
 
 func TestLocalSlideWindowLimiter_Limit(t *testing.T) {
