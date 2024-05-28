@@ -1,4 +1,4 @@
-package ratelimit
+package slidewindowlimit
 
 import (
 	"time"
@@ -6,7 +6,7 @@ import (
 	"github.com/redis/go-redis/v9"
 
 	"github.com/udugong/limiter"
-	"github.com/udugong/limiter/internal/ratelimit"
+	"github.com/udugong/limiter/internal/slidewindowlimit"
 )
 
 // NewRedisSlidingWindowLimiter 创建一个基于 redis 的滑动窗口限流器.
@@ -17,7 +17,7 @@ import (
 // 示例: 1s 内允许 3000 个请求 NewRedisSlidingWindowLimiter(redis.Client, time.Second, 3000)
 func NewRedisSlidingWindowLimiter(cmd redis.Cmdable,
 	interval time.Duration, rate int) limiter.Limiter {
-	return &ratelimit.RedisSlidingWindowLimiter{
+	return &slidewindowlimit.RedisSlidingWindowLimiter{
 		Cmd:      cmd,
 		Interval: interval,
 		Rate:     rate,
