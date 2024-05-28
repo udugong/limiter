@@ -7,6 +7,6 @@ import (
 )
 
 // NewRedisActiveLimiter 创建一个基于 redis 的活跃请求数限流器.
-func NewRedisActiveLimiter(maxActive int64, cli redis.Cmdable) *activelimit.RedisActiveLimiter {
+func NewRedisActiveLimiter(cli redis.Cmdable, maxActive int64) *activelimit.RedisActiveLimiter {
 	return activelimit.NewRedisActiveLimiter(maxActive, cli)
 }
