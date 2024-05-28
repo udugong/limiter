@@ -30,7 +30,7 @@ type BucketLimiter interface {
 	Close()
 
 	// Limit 有没有触发限流。
-	// bool 代表是否限流, true 就是要限流, 若 Context.Err() == nil 也会返回 error
+	// bool 代表是否限流, true 就是要限流, 若 Context.Err() != nil 也会返回 error
 	// error 当调用了 Close() 时返回错误
 	Limit(ctx context.Context, _ string) (bool, error)
 
